@@ -1,0 +1,20 @@
+{
+  "name": "goat-agent",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node-dev --respawn --transpile-only index.ts"
+  },
+  "description": "Blockchain agent that uses the Goat SDK to interact with the blockchain",
+  "dependencies": {
+    "@goat-sdk/core": "^0.4.5",
+    "@goat-sdk/plugin-erc20": "^0.2.7",
+    "@goat-sdk/wallet-evm": "^0.2.5",
+    "@goat-sdk/wallet-viem": "^0.2.5",
+    "dotenv": "^16.4.7",
+    "openai": "^4.78.1",
+    "viem": "2.21.49",
+    "zod": "^3.24.1"
+  }
+}
