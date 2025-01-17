@@ -7,7 +7,7 @@ import { viem } from '@goat-sdk/wallet-viem'
 import { Agent, type Capability } from '@openserv-labs/sdk'
 import fs from 'node:fs'
 import path from 'node:path'
-import { createWalletClient, http } from 'viem'
+import { createWalletClient, http, parseEther } from 'viem'
 import { privateKeyToAccount } from 'viem/accounts'
 import { mainnet } from 'viem/chains'
 import type { z } from 'zod'
@@ -102,8 +102,13 @@ async function main() {
 
   if (transferTool) {
     transferTool.execute = async ({ args }) => {
-      const result = await transferTool.execute({ ...args, to: address })
-      return `Transaction sent: ${result}`
+      const amount = parseEther(args.amount)
+      const tx = await walletClient.sendTransaction({
+        to: args.to,
+        value: amount
+      })
+
+      return `Transaction sent: ${tx}`
     }
   }
 
