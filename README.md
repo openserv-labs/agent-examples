@@ -23,13 +23,19 @@ git clone https://github.com/openserv-labs/agent-examples.git
 cd agent-examples
 ```
 
-2. Install dependencies:
+2. Navigate to the agent directory you want to try:
+
+```bash
+cd src/dexscreener-analytics
+```
+
+3. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Set up environment variables:
+4. Set up environment variables:
 
 ```bash
 cp .env.example .env
@@ -39,7 +45,7 @@ cp .env.example .env
 4. Run the agents:
 
 ```bash
-npm start
+npm run dev
 ```
 
 ## Project Structure
@@ -47,11 +53,16 @@ npm start
 ```
 /
 ├── src/
-│   ├── index.ts                    # Main entry point
-│   └── dexscreener-analytics/      # DexScreener agent
+│   ├── dexscreener-analytics/      # DexScreener analytics agent
+│   │   ├── index.ts                # Agent implementation
+│   │   ├── package.json            # Agent dependencies
+│   │   └── tsconfig.json           # TypeScript config
+│   │   └── .env.example            # Example environment file
+│   └── goat-agent/                 # GOAT wallet agent
 │       ├── index.ts                # Agent implementation
-│       └── README.md               # Agent documentation
-├── .env.example                    # Example environment file
+│       ├── package.json            # Agent dependencies
+│       └── tsconfig.json           # TypeScript config
+│       └── .env.example            # Example environment file
 └── README.md                       # Main documentation
 ```
 

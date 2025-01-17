@@ -1,0 +1,22 @@
+{
+  "name": "dexscreener-analytics",
+  "version": "1.0.0",
+  "description": "An autonomous AI agent that provides real-time token analytics using DexScreener's API.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@openserv-labs/sdk": "latest",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.7",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3"
+  }
+}

@@ -1,4 +1,5 @@
 import 'dotenv/config'
+
 import { Agent } from '@openserv-labs/sdk'
 import { z } from 'zod'
 import axios from 'axios'
@@ -77,7 +78,7 @@ dexScreenerAnalyticsAgent.addCapability({
             if (!pair) return null
 
             const now = Date.now()
-            const maxAgeMs = args.maxAgeDays ? args.maxAgeDays * 24 * 60 * 60 * 1000 : Infinity
+            const maxAgeMs = args.maxAgeDays ? args.maxAgeDays * 24 * 60 * 60 * 1000 : Number.POSITIVE_INFINITY
 
             const meetsVolume = !args.minVolume24h || (pair.volume?.h24 && pair.volume.h24 >= args.minVolume24h)
             const meetsLiquidity =
@@ -93,7 +94,7 @@ dexScreenerAnalyticsAgent.addCapability({
                 chain: pair.chainId,
                 dex: pair.dexId,
                 liquidity: pair.liquidity?.usd ? `$${pair.liquidity.usd.toLocaleString()}` : 'N/A',
-                price: pair.priceUsd ? `$${parseFloat(pair.priceUsd).toFixed(6)}` : 'N/A',
+                price: pair.priceUsd ? `$${Number.parseFloat(pair.priceUsd).toFixed(6)}` : 'N/A',
                 marketCap: pair.marketCap ? `$${pair.marketCap.toLocaleString()}` : 'N/A',
                 volume24h: pair.volume?.h24 ? `$${pair.volume.h24.toLocaleString()}` : 'N/A',
                 priceChange24h: pair.priceChange?.h24 ? `${pair.priceChange.h24.toFixed(2)}%` : 'N/A',
@@ -124,4 +125,18 @@ dexScreenerAnalyticsAgent.addCapability({
   }
 })
 
-export default dexScreenerAnalyticsAgent
+dexScreenerAnalyticsAgent
+  .process({
+    messages: [
+      {
+        role: 'user',
+        content:
+          // 'Provide a list of tokens that have >$1m 24hr volume, have market cap between 1 and 25 million and are <30 days old'
+          'Find tokens with >$10M market cap and positive 24h price change'
+      }
+    ]
+  })
+  .then(response => {
+    console.log(response.choices[0].message.content)
+  })
+
