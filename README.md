@@ -14,6 +14,17 @@ Example query:
 "Show me tokens with >$1M 24h volume and market cap between $1M-$25M created in the last 30 days"
 ```
 
+### [GOAT Wallet](src/goat-agent)
+
+A wallet agent that can interact with the blockchain and perform transactions.
+
+Example queries:
+
+```
+"How much ETH do I have in my wallet?"
+"Send 0.1 ETH to the address 0x1234567890"
+```
+
 ## Getting Started
 
 1. Clone the repository:
