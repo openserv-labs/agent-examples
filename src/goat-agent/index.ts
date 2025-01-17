@@ -116,6 +116,16 @@ async function main() {
     }
   }
 
+  const getTokenBalanceTool = tools.find(tool => tool.name === 'get_token_balance')
+
+  if (getTokenBalanceTool) {
+    const execute = getTokenBalanceTool.execute
+
+    getTokenBalanceTool.execute = async args => {
+      return execute({ ...args, wallet: address })
+    }
+  }
+
   try {
     const capabilities = tools.map(toCapability) as [Capability<z.ZodTypeAny>, ...Capability<z.ZodTypeAny>[]]
 
