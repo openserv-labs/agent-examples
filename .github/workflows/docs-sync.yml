@@ -1,0 +1,45 @@
+name: Sync Multiple READMEs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'README.md'
+      - 'src/dexscreener-analytics/README.md'
+      - 'src/goat-agent/README.md'
+
+jobs:
+  sync-readmes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout agent-example repository
+        uses: actions/checkout@v2
+
+      - name: Checkout openserv-docs repository
+        uses: actions/checkout@v2
+        with:
+          repository: 'openserv-labs/openserv-docs'
+          token: ${{ secrets.GH_TOKEN }}
+          path: 'openserv-docs'
+
+      - name: Sync main README.md
+        run: |
+          cp README.md openserv-docs/packages/agent-examples/README.md
+
+      - name: Sync goat-agent README.md
+        run: |
+          cp src/goat-agent/README.md openserv-docs/packages/agent-examples/goat-agent/README.md
+
+      - name: Sync dexscreener-analytics README.md
+        run: |
+          cp src/dexscreener-analytics/README.md openserv-docs/packages/agent-examples/dexscreener-analytics/README.md
+
+      - name: Commit and push if changed
+        working-directory: ./openserv-docs
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add packages/agent-examples/
+          git commit -m "Update READMEs from agent-example" || exit 0
+          git push
