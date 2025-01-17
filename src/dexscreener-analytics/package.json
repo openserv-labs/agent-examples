@@ -1,22 +1,17 @@
 {
-  "name": "goat-agent",
+  "name": "dexscreener-analytics",
   "version": "1.0.0",
+  "description": "An autonomous AI agent that provides real-time token analytics using DexScreener's API.",
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only index.ts",
     "build": "tsc",
     "start": "node dist/index.js"
   },
-  "description": "Blockchain agent that uses the Goat SDK to interact with the blockchain",
   "dependencies": {
-    "@goat-sdk/core": "^0.4.5",
-    "@goat-sdk/plugin-erc20": "^0.2.7",
-    "@goat-sdk/wallet-evm": "^0.2.5",
-    "@goat-sdk/wallet-viem": "^0.2.5",
     "@openserv-labs/sdk": "latest",
+    "axios": "^1.7.9",
     "dotenv": "^16.4.7",
-    "openai": "^4.78.1",
-    "viem": "2.21.49",
     "zod": "^3.24.1"
   },
   "devDependencies": {
