@@ -28,8 +28,6 @@ if (!process.env.OPENSERV_API_KEY) {
   throw new Error('OPENSERV_API_KEY is not set')
 }
 
-const openservTokenContactAddress = '0x40e3d1A4B2C47d9AA61261F5606136ef73E28042'
-
 const erc20Plugin = erc20({
   tokens: [
     USDC,
@@ -39,7 +37,17 @@ const erc20Plugin = erc20({
       decimals: 18,
       chains: {
         [mainnet.id]: {
-          contractAddress: openservTokenContactAddress
+          contractAddress: '0x40e3d1A4B2C47d9AA61261F5606136ef73E28042'
+        }
+      }
+    },
+    {
+      name: 'Virtual Protocol',
+      symbol: 'VIRTUAL',
+      decimals: 18,
+      chains: {
+        [mainnet.id]: {
+          contractAddress: '0x44ff8620b8cA30902395A7bD3F2407e1A091BF73'
         }
       }
     }
