@@ -2,9 +2,7 @@
 
 A collection of autonomous AI agents built with the @openserv-labs/sdk framework. Each agent demonstrates different capabilities and use cases.
 
-## Available Agents
-
-### [DexScreener Analytics](src/dexscreener-analytics)
+## [DexScreener Analytics](src/dexscreener-analytics)
 
 An agent that provides real-time token analytics using DexScreener's API. Filter and analyze tokens by various criteria like volume, market cap, liquidity, and age.
 
@@ -14,7 +12,7 @@ Example query:
 "Show me tokens with >$1M 24h volume and market cap between $1M-$25M created in the last 30 days"
 ```
 
-### [GOAT Wallet](src/goat-agent)
+## [GOAT Wallet](src/goat-agent)
 
 A wallet agent that can interact with the blockchain and perform transactions.
 
