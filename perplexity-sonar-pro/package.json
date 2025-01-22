@@ -1,0 +1,21 @@
+{
+  "name": "perplexity-sonar-pro",
+  "version": "1.0.0",
+  "description": "An AI agent using Perplexity API for advanced web search and analysis",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "ts-node index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@openserv-labs/sdk": "^1.0.0",
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  }
+} 

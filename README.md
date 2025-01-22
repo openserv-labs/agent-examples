@@ -23,6 +23,18 @@ Example queries:
 "Send 0.1 ETH to the address 0x1234567890"
 ```
 
+## [Perplexity Sonar Pro](perplexity-sonar-pro)
+
+An agent that performs web searches using Perplexity's Sonar Pro API, providing detailed responses with source citations.
+
+Example queries:
+
+```
+"What are the latest developments in AI?"
+"Tell me about renewable energy technologies"
+"Explain quantum computing basics"
+```
+
 ## Getting Started
 
 1. Clone the repository:
@@ -70,7 +82,13 @@ npm run dev
 │   ├── package.json            # Agent dependencies
 │   └── tsconfig.json           # TypeScript config
 │   └── .env.example            # Example environment file
-└── README.md                   # Main documentation
+├── perplexity-sonar-pro/          # Perplexity search agent
+│   ├── index.ts                    # Agent implementation
+│   ├── client.ts                   # Perplexity API client
+│   ├── package.json                # Agent dependencies
+│   └── tsconfig.json               # TypeScript config
+│   └── .env.example                # Example environment file
+└── README.md                       # Main documentation
 ```
 
 ## Contributing
