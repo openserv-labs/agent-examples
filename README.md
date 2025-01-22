@@ -82,7 +82,7 @@ npm run dev
 │   ├── package.json            # Agent dependencies
 │   └── tsconfig.json           # TypeScript config
 │   └── .env.example            # Example environment file
-├── perplexity-sonar-pro/          # Perplexity search agent
+├── perplexity-sonar-pro/          # Perplexity search agent with the Sonar Pro API
 │   ├── index.ts                    # Agent implementation
 │   ├── client.ts                   # Perplexity API client
 │   ├── package.json                # Agent dependencies
