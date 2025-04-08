@@ -1,0 +1,21 @@
+{
+  "name": "twitter-agent",
+  "version": "1.0.0",
+  "description": "An AI marketing manager that can post tweets through Twitter API",
+  "main": "twitter-agent.ts",
+  "scripts": {
+    "dev": "ts-node twitter-agent.ts",
+    "build": "tsc",
+    "start": "node dist/twitter-agent.js"
+  },
+  "dependencies": {
+    "@openserv-labs/sdk": "latest",
+    "dotenv": "^16.3.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  }
+} 
