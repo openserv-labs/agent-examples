@@ -9,7 +9,7 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
-    "@openserv-labs/sdk": "1.8.1",
+    "@openserv-labs/sdk": "github:openserv-labs/sdk",
     "axios": "^1.6.2",
     "dotenv": "^16.3.1"
   },
